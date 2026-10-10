@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pepoung – SMS consent and opt-in workflow</title>
+<meta name="description" content="How users and trusted contacts consent to receive Pepoung safety alerts by SMS.">
+<style>
+  :root {
+    --green: #2d6a4f;
+    --green-dark: #1f4d39;
+    --ink: #1c2420;
+    --muted: #5b6760;
+    --bg: #f5f7f4;
+    --card: #ffffff;
+    --line: #dde4df;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  header {
+    background: var(--green);
+    color: #fff;
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header h1 {
+    font: 700 2rem/1.2 Georgia, "Times New Roman", serif;
+    margin: 0 0 .5rem;
+  }
+  header p { margin: 0; opacity: .92; max-width: 56ch; }
+  nav { margin-top: 1.25rem; display: flex; gap: .75rem; flex-wrap: wrap; }
+  nav a {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 999px;
+    padding: .35rem .9rem;
+    text-decoration: none;
+    font-size: .95rem;
+  }
+  nav a:hover, nav a:focus-visible { background: rgba(255,255,255,.16); outline: none; }
+  main { padding: 2rem 1.25rem 3rem; }
+  section.lang { margin-bottom: 4rem; }
+  h2 {
+    font: 700 1.55rem/1.25 Georgia, "Times New Roman", serif;
+    color: var(--green-dark);
+    margin: 0 0 1.25rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--green);
+  }
+  h3 { font-size: 1.1rem; margin: 2rem 0 .5rem; color: var(--green-dark); }
+  p, li { max-width: 68ch; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  blockquote {
+    margin: 1rem 0;
+    padding: .9rem 1.1rem;
+    background: #eef4f0;
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+  }
+  blockquote p { margin: 0; }
+  .shots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.25rem 0;
+  }
+  figure { margin: 0; flex: 1 1 240px; max-width: 300px; }
+  figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+  }
+  figcaption { font-size: .9rem; color: var(--muted); margin-top: .5rem; }
+  dl { margin: 1rem 0; }
+  dt { font-weight: 600; margin-top: .75rem; }
+  dd { margin: .15rem 0 0; color: var(--ink); }
+  .sample { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .92rem; background: #f0f3f1; border-radius: 8px; padding: .75rem 1rem; margin: .5rem 0; }
+  footer { border-top: 1px solid var(--line); padding: 1.5rem 1.25rem 2.5rem; color: var(--muted); font-size: .95rem; }
+  footer a, main a { color: var(--green-dark); }
+  a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+  [hidden] { display: none !important; }
+  .tabs { margin-top: 1.25rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+  .tabs button {
+    font: inherit;
+    font-size: .95rem;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 999px;
+    padding: .4rem 1.1rem;
+    cursor: pointer;
+  }
+  .tabs button:hover { background: rgba(255,255,255,.16); }
+  .tabs button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  .tabs button[aria-selected="true"] { background: #fff; color: var(--green-dark); font-weight: 600; }
+  .sub { margin: 0 0 1.5rem; color: var(--muted); }
+  .panel-foot { border-top: 1px solid var(--line); margin-top: 2.5rem; padding-top: 1.25rem; color: var(--muted); font-size: .95rem; }
+</style>
+<noscript><style>[hidden] { display: block !important; } .tabs { display: none; } #panel-fr { margin-top: 3rem; }</style></noscript>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Pepoung</h1>
+    <div class="tabs" role="tablist" aria-label="Language / Langue">
+      <button role="tab" id="tab-en" aria-controls="panel-en" aria-selected="true" type="button">English</button>
+      <button role="tab" id="tab-fr" aria-controls="panel-fr" aria-selected="false" tabindex="-1" type="button">Français</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="panel-en" role="tabpanel" aria-labelledby="tab-en" lang="en">
+  <p class="sub">SMS consent and opt-in workflow</p>
+
+  <h2>How consent works in Pepoung</h2>
+
+  <p>Pepoung is a mobile app for daily safety check-ins. Each day, the account holder confirms in the app that they are fine. If they do not confirm, the app alerts the trusted contact they chose. The only people who receive SMS from Pepoung are those trusted contacts, and only in that situation.</p>
+
+  <h3>Who receives messages</h3>
+  <dl>
+    <dt>Account holder</dt>
+    <dd>Creates an account in the Pepoung mobile app (email, Apple or Google sign-in) and receives their daily check-in reminders as push notifications inside the app. No SMS is sent to the account holder for check-in reminders.</dd>
+    <dt>Trusted contact</dt>
+    <dd>A person the account holder designates in the app. Pepoung sends SMS to this person only when the account holder has not confirmed a check-in, or has pressed the SOS button.</dd>
+  </dl>
+
+  <h3>Step 1: account creation and consent to terms</h3>
+  <p>The account holder cannot create an account until they tick an unchecked box accepting the Terms and the Privacy Policy. The links open the documents hosted at the addresses listed at the bottom of this page.</p>
+  <div class="shots">
+    <figure>
+      <img src="images/signup-screen.jpg" alt="Pepoung sign-up screen with the consent checkbox and links to terms and privacy policy">
+      <figcaption>Sign-up screen. The checkbox is unchecked by default and the account cannot be created without it.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Step 2: the account holder adds a trusted contact</h3>
+  <p>After creating the account, the account holder enters the name and mobile number of their trusted contact. The screen states, before the contact is saved, that this person will receive automated SMS alerts from Pepoung.</p>
+  <div class="shots">
+    <figure>
+      <img src="images/trusted-contact-screen.jpg" alt="Pepoung screen for adding a trusted contact, with the SMS disclosure shown">
+      <figcaption>Trusted contact screen with the SMS disclosure shown before saving.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Disclosure text shown in the app</h3>
+  <blockquote>
+    <p><!-- À VÉRIFIER : remplace par le texte EXACT affiché dans ton app --> [Contact name] will receive an automated text message from Pepoung with your location if you do not confirm your daily check-in or if you press SOS. Message frequency varies. Message and data rates may apply. They can reply STOP at any time to stop receiving messages, or HELP for help.</p>
+  </blockquote>
+
+  <h3>Messages sent</h3>
+  <p>Only safety alerts to the trusted contact. No marketing, no promotions, and phone numbers are never sold or shared with third parties for marketing.</p>
+  <p>Examples:</p>
+  <div class="sample">Pepoung: [Name] has not confirmed their daily check-in. Please try to reach them. Last known location: [link]. Reply STOP to opt out, HELP for help.</div>
+  <div class="sample">Pepoung: [Name] triggered an SOS alert. Location: [link]. Reply STOP to opt out, HELP for help.</div>
+  <div class="shots">
+    <figure>
+      <img src="images/consent-text.jpg" alt="Screenshot of a Pepoung alert SMS as received by a trusted contact">
+      <figcaption>An alert SMS as received by a trusted contact.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Opting out and help</h3>
+  <p>A trusted contact can reply <strong>STOP</strong> to any message to stop receiving SMS from Pepoung, and <strong>HELP</strong> for assistance. The account holder can also remove the contact at any time in the app, under Contacts.</p>
+
+  <div class="panel-foot"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></div>
+</section>
+
+<section id="panel-fr" role="tabpanel" aria-labelledby="tab-fr" lang="fr" hidden>
+  <p class="sub">Consentement aux SMS et parcours d'inscription</p>
+
+  <h2>Comment fonctionne le consentement dans Pepoung</h2>
+
+  <p>Pepoung est une application mobile de check-in quotidien. Chaque jour, le titulaire du compte confirme dans l'app qu'il va bien. S'il ne confirme pas, l'app alerte le contact de confiance qu'il a choisi. Les seules personnes qui reçoivent des SMS de Pepoung sont ces contacts de confiance, et uniquement dans cette situation.</p>
+
+  <h3>Qui reçoit les messages</h3>
+  <dl>
+    <dt>Titulaire du compte</dt>
+    <dd>Crée un compte dans l'app mobile (email, connexion Apple ou Google) et reçoit ses rappels de check-in sous forme de notifications push dans l'app. Aucun SMS de rappel ne lui est envoyé.</dd>
+    <dt>Contact de confiance</dt>
+    <dd>Une personne désignée par le titulaire dans l'app. Pepoung lui envoie un SMS seulement si le titulaire n'a pas confirmé son check-in, ou s'il a appuyé sur le bouton SOS.</dd>
+  </dl>
+
+  <h3>Étape 1 : création du compte et acceptation des conditions</h3>
+  <p>Le titulaire ne peut pas créer son compte sans cocher une case, décochée par défaut, qui accepte les Conditions et la Politique de confidentialité. Les liens ouvrent les documents hébergés aux adresses indiquées en bas de page.</p>
+  <div class="shots">
+    <figure>
+      <img src="images/signup-screen.jpg" alt="Écran d'inscription de Pepoung avec la case de consentement et les liens vers les conditions et la politique de confidentialité">
+      <figcaption>Écran d'inscription. La case est décochée par défaut et le compte ne peut pas être créé sans elle.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Étape 2 : le titulaire ajoute un contact de confiance</h3>
+  <p>Après la création du compte, le titulaire saisit le nom et le numéro de mobile de son contact de confiance. L'écran indique, avant l'enregistrement, que cette personne recevra des alertes SMS automatisées de Pepoung.</p>
+  <div class="shots">
+    <figure>
+      <img src="images/trusted-contact-screen.jpg" alt="Écran d'ajout d'un contact de confiance dans Pepoung avec la mention sur les SMS">
+      <figcaption>Écran du contact de confiance avec la mention sur les SMS, affichée avant l'enregistrement.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Texte de la mention affichée dans l'app</h3>
+  <blockquote>
+    <p><!-- À VÉRIFIER : remplace par le texte EXACT affiché dans ton app --> [Nom du contact] recevra un SMS automatisé de Pepoung avec ta position si tu ne confirmes pas ton check-in quotidien ou si tu appuies sur SOS. La fréquence varie. Des frais de messagerie et de données peuvent s'appliquer. Cette personne peut répondre STOP à tout moment pour ne plus recevoir de messages, ou HELP pour de l'aide.</p>
+  </blockquote>
+
+  <h3>Messages envoyés</h3>
+  <p>Uniquement des alertes de sécurité envoyées au contact de confiance. Aucun message promotionnel, et les numéros de téléphone ne sont jamais vendus ni partagés avec des tiers à des fins de marketing.</p>
+  <div class="shots">
+    <figure>
+      <img src="images/consent-text.jpg" alt="Capture d'un SMS d'alerte Pepoung tel que reçu par un contact de confiance">
+      <figcaption>Un SMS d'alerte tel que reçu par un contact de confiance.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Désabonnement et aide</h3>
+  <p>Un contact de confiance peut répondre <strong>STOP</strong> à n'importe quel message pour ne plus recevoir de SMS de Pepoung, et <strong>HELP</strong> pour obtenir de l'aide. Le titulaire peut aussi retirer le contact à tout moment dans l'app, sous Contacts.</p>
+
+  <div class="panel-foot"><a href="privacy.html">Politique de confidentialité</a> · <a href="terms.html">Conditions d'utilisation</a></div>
+</section>
+
+</main>
+
+<script>
+(function () {
+  var tabs = { en: document.getElementById('tab-en'), fr: document.getElementById('tab-fr') };
+  var panels = { en: document.getElementById('panel-en'), fr: document.getElementById('panel-fr') };
+  function show(lang, updateHash) {
+    ['en', 'fr'].forEach(function (l) {
+      var on = l === lang;
+      tabs[l].setAttribute('aria-selected', on ? 'true' : 'false');
+      tabs[l].tabIndex = on ? 0 : -1;
+      panels[l].hidden = !on;
+    });
+    document.documentElement.lang = lang;
+    document.title = lang === 'fr'
+      ? "Pepoung – Consentement aux SMS et parcours d'inscription"
+      : 'Pepoung – SMS consent and opt-in workflow';
+    if (updateHash) {
+      try { history.replaceState(null, '', lang === 'fr' ? '#fr' : '#en'); } catch (e) { /* aperçu sandboxé : on ignore */ }
+    }
+  }
+  ['en', 'fr'].forEach(function (l) {
+    tabs[l].addEventListener('click', function () { show(l, true); });
+    tabs[l].addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        var other = l === 'en' ? 'fr' : 'en';
+        show(other, true);
+        tabs[other].focus();
+      }
+    });
+  });
+  show(location.hash === '#fr' ? 'fr' : 'en', false);
+})();
+</script>
+
+</body>
+</html>
