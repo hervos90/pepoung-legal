@@ -131,55 +131,52 @@
 <section id="panel-en" role="tabpanel" aria-labelledby="tab-en" lang="en">
   <p class="sub">SMS consent and opt-in workflow</p>
 
-  <h2>How consent works in Pepoung</h2>
+  <h2>How trusted contacts consent to receive SMS</h2>
+  <p>Pepoung is a mobile app for daily safety check-ins. Each day, the account holder confirms in the app that they are fine; reminders to the account holder are push notifications inside the app, not SMS. If they do not confirm, the app alerts the trusted contacts they chose. Text messages are sent only to those trusted contacts, and only after the contact has opted in by replying YES.</p>
+  <p>Consent to receive SMS is not a condition of using Pepoung or creating an account. The same invitation and alerts can also be delivered by email, which is separate from this SMS program.</p>
 
-  <p>Pepoung is a mobile app for daily safety check-ins. Each day, the account holder confirms in the app that they are fine. If they do not confirm, the app alerts the trusted contact they chose. The only people who receive SMS from Pepoung are those trusted contacts, and only in that situation.</p>
-
-  <h3>Who receives messages</h3>
-  <dl>
-    <dt>Account holder</dt>
-    <dd>Creates an account in the Pepoung mobile app (email, Apple or Google sign-in) and receives their daily check-in reminders as push notifications inside the app. No SMS is sent to the account holder for check-in reminders.</dd>
-    <dt>Trusted contact</dt>
-    <dd>A person the account holder designates in the app. Pepoung sends SMS to this person only when the account holder has not confirmed a check-in, or has pressed the SOS button.</dd>
-  </dl>
-
-  <h3>Step 1: account creation and consent to terms</h3>
-  <p>The account holder cannot create an account until they tick an unchecked box accepting the Terms and the Privacy Policy. The links open the documents hosted at the addresses listed at the bottom of this page.</p>
+  <h3>Step 1: the account holder creates an account</h3>
+  <p>The account holder cannot create an account until they tick an unchecked box accepting the Terms and the Privacy Policy, whose links are on the same screen. This box accepts the legal documents only. It is not consent to receive text messages, which are sent only to trusted contacts, and only after they opt in.</p>
   <div class="shots">
     <figure>
-      <img src="images/signup-screen.jpg" alt="Pepoung sign-up screen with the consent checkbox and links to terms and privacy policy">
-      <figcaption>Sign-up screen. The checkbox is unchecked by default and the account cannot be created without it.</figcaption>
+      <img src="images/signup-screen.jpg" alt="Pepoung sign-up screen with an unchecked checkbox for the terms and privacy policy">
+      <figcaption>Sign-up screen. The checkbox is unchecked by default and the Continue button stays disabled until it is ticked.</figcaption>
     </figure>
   </div>
 
   <h3>Step 2: the account holder adds a trusted contact</h3>
-  <p>After creating the account, the account holder enters the name and mobile number of their trusted contact. The screen states, before the contact is saved, that this person will receive automated SMS alerts from Pepoung.</p>
+  <p>The account holder enters the contact's name and mobile number. Before the contact is saved, the app shows a confirmation screen with this text:</p>
+  <blockquote><p>[Name] will receive automated SMS alerts if you don't confirm your check-in. They will also receive a message with your location if you activate an SOS.</p></blockquote>
   <div class="shots">
     <figure>
-      <img src="images/trusted-contact-screen.jpg" alt="Pepoung screen for adding a trusted contact, with the SMS disclosure shown">
-      <figcaption>Trusted contact screen with the SMS disclosure shown before saving.</figcaption>
+      <img src="images/trusted-contact-screen.jpg" alt="Pepoung confirmation screen shown before a trusted contact is added">
+      <figcaption>Confirmation screen shown before the contact is added.</figcaption>
     </figure>
   </div>
 
-  <h3>Disclosure text shown in the app</h3>
-  <blockquote>
-    <p>[Contact name] is informed that they will receive automated SMS alerts if you don't confirm your check-in. They will also receive a message with your location if you activate an SOS.</p>
-  </blockquote>
+  <h3>Step 3: Pepoung sends one invitation SMS</h3>
+  <p>The trusted contact receives a single invitation text message. It names the app, explains what the contact would receive, and gives the frequency, the rates notice and the STOP and HELP instructions.</p>
+  <blockquote><p>Pepoung: [Name] added you as a trusted contact. By accepting, you will receive automated SMS alerts if they don't confirm their check-in, and a message with their location if they activate an SOS. Msg frequency varies. Msg &amp; data rates may apply. Reply YES to accept, NO to decline. Reply STOP to opt out, HELP for help.</p></blockquote>
 
-  <h3>Messages sent</h3>
-  <p>Only safety alerts to the trusted contact. No marketing, no promotions, and phone numbers are never sold or shared with third parties for marketing.</p>
-  <p>Examples:</p>
-  <div class="sample">Pepoung: [Name] has not confirmed their daily check-in. Please try to reach them. Last known location: [link]. Reply STOP to opt out, HELP for help.</div>
-  <div class="sample">Pepoung: [Name] triggered an SOS alert. Location: [link]. Reply STOP to opt out, HELP for help.</div>
+  <h3>Step 4: the contact opts in by replying YES</h3>
+  <p>The contact opts in by replying YES (or OUI in French) to the number that sent the invitation, +1 438-905-9673. Nothing else is sent before that reply. If the contact replies NO, or does not reply, the process stops and no further text message is sent.</p>
+
+  <h3>Step 5: confirmation message</h3>
+  <blockquote><p>Pepoung: You're confirmed as a trusted contact. You will receive automated safety alerts if the person who added you misses a check-in, and their location if they press SOS. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.</p></blockquote>
   <div class="shots">
     <figure>
-      <img src="images/consent-text.jpg" alt="Screenshot of a Pepoung alert SMS as received by a trusted contact">
-      <figcaption>An alert SMS as received by a trusted contact.</figcaption>
+      <img src="images/consent-text.jpg" alt="Trusted contact's phone: invitation SMS, YES reply and confirmation SMS">
+      <figcaption>On the trusted contact's phone: the invitation SMS, the YES reply, and the confirmation SMS.</figcaption>
     </figure>
   </div>
+
+  <h3>Alert messages after opt-in</h3>
+  <p>Only safety alerts are sent: no marketing and no promotions. A missed check-in alert does not include a location. An SOS alert includes the location of the account holder.</p>
+  <div class="sample">Pepoung: [Name] has not confirmed their daily check-in. Please try to reach them. Reply STOP to opt out, HELP for help.</div>
+  <div class="sample">Pepoung SOS: [Name] pressed SOS. Location: [link]. Please try to reach them now. Reply STOP to opt out, HELP for help.</div>
 
   <h3>Opting out and help</h3>
-  <p>A trusted contact can reply <strong>STOP</strong> to any message to stop receiving SMS from Pepoung, and <strong>HELP</strong> for assistance. The account holder can also remove the contact at any time in the app, under Contacts.</p>
+  <p>A trusted contact can reply <strong>STOP</strong> at any time to stop receiving text messages from Pepoung, and <strong>HELP</strong> for assistance. The account holder can also remove the contact at any time in the app. Message frequency varies. Message and data rates may apply. Mobile information is not shared with third parties or affiliates for marketing or promotional purposes.</p>
 
   <div class="panel-foot"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></div>
 </section>
@@ -187,52 +184,50 @@
 <section id="panel-fr" role="tabpanel" aria-labelledby="tab-fr" lang="fr" hidden>
   <p class="sub">Consentement aux SMS et parcours d'inscription</p>
 
-  <h2>Comment fonctionne le consentement dans Pepoung</h2>
+  <h2>Comment les contacts de confiance consentent à recevoir des SMS</h2>
+  <p>Pepoung est une application mobile de check-in quotidien pour la sécurité. Chaque jour, le titulaire du compte confirme dans l'app qu'il va bien ; ses rappels sont des notifications push dans l'app, pas des SMS. S'il ne confirme pas, l'app alerte les contacts de confiance qu'il a choisis. Des messages texte ne sont envoyés qu'à ces contacts, et seulement après qu'ils ont donné leur consentement en répondant OUI.</p>
+  <p>Le consentement à recevoir des SMS n'est pas une condition pour utiliser Pepoung ni pour créer un compte. La même invitation et les mêmes alertes peuvent aussi être envoyées par email, ce qui est distinct de ce programme SMS.</p>
 
-  <p>Pepoung est une application mobile de check-in quotidien. Chaque jour, le titulaire du compte confirme dans l'app qu'il va bien. S'il ne confirme pas, l'app alerte le contact de confiance qu'il a choisi. Les seules personnes qui reçoivent des SMS de Pepoung sont ces contacts de confiance, et uniquement dans cette situation.</p>
-
-  <h3>Qui reçoit les messages</h3>
-  <dl>
-    <dt>Titulaire du compte</dt>
-    <dd>Crée un compte dans l'app mobile (email, connexion Apple ou Google) et reçoit ses rappels de check-in sous forme de notifications push dans l'app. Aucun SMS de rappel ne lui est envoyé.</dd>
-    <dt>Contact de confiance</dt>
-    <dd>Une personne désignée par le titulaire dans l'app. Pepoung lui envoie un SMS seulement si le titulaire n'a pas confirmé son check-in, ou s'il a appuyé sur le bouton SOS.</dd>
-  </dl>
-
-  <h3>Étape 1 : création du compte et acceptation des conditions</h3>
-  <p>Le titulaire ne peut pas créer son compte sans cocher une case, décochée par défaut, qui accepte les Conditions et la Politique de confidentialité. Les liens ouvrent les documents hébergés aux adresses indiquées en bas de page.</p>
+  <h3>Étape 1 : le titulaire crée un compte</h3>
+  <p>Le titulaire ne peut pas créer son compte sans cocher une case, décochée par défaut, qui accepte les Conditions et la Politique de confidentialité, dont les liens sont sur le même écran. Cette case accepte seulement les documents légaux. Ce n'est pas un consentement à recevoir des messages texte, qui sont envoyés uniquement aux contacts de confiance, et seulement après leur consentement.</p>
   <div class="shots">
     <figure>
-      <img src="images/signup-screen.jpg" alt="Écran d'inscription de Pepoung avec la case de consentement et les liens vers les conditions et la politique de confidentialité">
-      <figcaption>Écran d'inscription. La case est décochée par défaut et le compte ne peut pas être créé sans elle.</figcaption>
+      <img src="images/signup-screen.jpg" alt="Écran d'inscription de Pepoung avec une case décochée pour les conditions et la politique de confidentialité">
+      <figcaption>Écran d'inscription. La case est décochée par défaut et le bouton Continuer reste désactivé tant qu'elle n'est pas cochée.</figcaption>
     </figure>
   </div>
 
   <h3>Étape 2 : le titulaire ajoute un contact de confiance</h3>
-  <p>Après la création du compte, le titulaire saisit le nom et le numéro de mobile de son contact de confiance. L'écran indique, avant l'enregistrement, que cette personne recevra des alertes SMS automatisées de Pepoung.</p>
+  <p>Le titulaire saisit le nom et le numéro de mobile du contact. Avant l'enregistrement, l'app affiche un écran de confirmation avec ce texte :</p>
+  <blockquote><p>[Nom] recevra des alertes SMS automatisées si tu ne confirmes pas ton check-in. [Nom] recevra aussi un message avec ta position si tu actives un SOS.</p></blockquote>
   <div class="shots">
     <figure>
-      <img src="images/trusted-contact-screen.jpg" alt="Écran d'ajout d'un contact de confiance dans Pepoung avec la mention sur les SMS">
-      <figcaption>Écran du contact de confiance avec la mention sur les SMS, affichée avant l'enregistrement.</figcaption>
+      <img src="images/trusted-contact-screen.jpg" alt="Écran de confirmation de Pepoung affiché avant l'ajout d'un contact de confiance">
+      <figcaption>Écran de confirmation affiché avant l'ajout du contact.</figcaption>
     </figure>
   </div>
 
-  <h3>Texte de la mention affichée dans l'app</h3>
-  <blockquote>
-    <p>[Nom du contact]  recevra des alertes SMS automatisées si tu ne confirmes pas ton check-in. [Nom du contact] recevra aussi un message avec ta position si tu actives un SOS.</p>
-  </blockquote>
+  <h3>Étape 3 : Pepoung envoie un seul SMS d'invitation</h3>
+  <p>Le contact de confiance reçoit un seul SMS d'invitation. Il nomme l'app, explique ce que le contact recevrait, et indique la fréquence, la mention des frais et les instructions STOP et HELP.</p>
+  <blockquote><p>Pepoung : [Nom] t'a ajouté(e) comme contact de confiance. En acceptant, tu recevras des alertes SMS automatisées si cette personne ne confirme pas son check-in, et un message avec sa position si elle active un SOS. La fréquence varie. Des frais de messagerie et de données peuvent s'appliquer. Réponds OUI pour accepter, NON pour refuser. Réponds STOP pour te désabonner, HELP pour de l'aide.</p></blockquote>
 
-  <h3>Messages envoyés</h3>
-  <p>Uniquement des alertes de sécurité envoyées au contact de confiance. Aucun message promotionnel, et les numéros de téléphone ne sont jamais vendus ni partagés avec des tiers à des fins de marketing.</p>
+  <h3>Étape 4 : le contact consent en répondant OUI</h3>
+  <p>Le contact consent en répondant OUI (ou YES) au numéro qui a envoyé l'invitation, le +1 438-905-9673. Rien d'autre n'est envoyé avant cette réponse. S'il répond NON, ou ne répond pas, le processus s'arrête et aucun autre message texte n'est envoyé.</p>
+
+  <h3>Étape 5 : message de confirmation</h3>
+  <blockquote><p>Pepoung : tu es confirmé(e) comme contact de confiance. Tu recevras des alertes de sécurité automatisées si la personne qui t'a ajouté(e) manque un check-in, et sa position si elle appuie sur SOS. La fréquence varie. Des frais de messagerie et de données peuvent s'appliquer. Réponds STOP pour te désabonner, HELP pour de l'aide.</p></blockquote>
   <div class="shots">
     <figure>
-      <img src="images/consent-text.jpg" alt="Capture d'un SMS d'alerte Pepoung tel que reçu par un contact de confiance">
-      <figcaption>Un SMS d'alerte tel que reçu par un contact de confiance.</figcaption>
+      <img src="images/consent-text.jpg" alt="Téléphone du contact de confiance : SMS d'invitation, réponse YES et SMS de confirmation">
+      <figcaption>Sur le téléphone du contact de confiance : le SMS d'invitation, la réponse YES et le SMS de confirmation.</figcaption>
     </figure>
   </div>
+
+  <h3>Messages d'alerte après le consentement</h3>
+  <p>Seules des alertes de sécurité sont envoyées : aucun message promotionnel. Une alerte de check-in manqué ne contient pas de position. Une alerte SOS contient la position du titulaire du compte.</p>
 
   <h3>Désabonnement et aide</h3>
-  <p>Un contact de confiance peut répondre <strong>STOP</strong> à n'importe quel message pour ne plus recevoir de SMS de Pepoung, et <strong>HELP</strong> pour obtenir de l'aide. Le titulaire peut aussi retirer le contact à tout moment dans l'app, sous Contacts.</p>
+  <p>Un contact de confiance peut répondre <strong>STOP</strong> à tout moment pour ne plus recevoir de messages texte de Pepoung, et <strong>HELP</strong> pour obtenir de l'aide. Le titulaire peut aussi retirer le contact à tout moment dans l'app. La fréquence des messages varie. Des frais de messagerie et de données peuvent s'appliquer. Les informations mobiles ne sont pas partagées avec des tiers ni des sociétés affiliées à des fins de marketing ou de promotion.</p>
 
   <div class="panel-foot"><a href="privacy.html">Politique de confidentialité</a> · <a href="terms.html">Conditions d'utilisation</a></div>
 </section>
